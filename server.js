@@ -6,27 +6,34 @@ var express = require('express');
 var app = express();
 
 // enable CORS (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
-// so that your API is remotely testable by FCC 
+// so that your API is remotely testable by FCC
 var cors = require('cors');
-app.use(cors({optionSuccessStatus: 200}));  // some legacy browsers choke on 204
+app.use(cors({ optionSuccessStatus: 200 })); // some legacy browsers choke on 204
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function (req, res) {
+app.get('/', function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-
-// your first API endpoint... 
-app.get("/api/hello", function (req, res) {
-  res.json({greeting: 'hello API'});
+// your first API endpoint...
+app.get('/api/hello', function(req, res) {
+  res.json({ greeting: 'hello API' });
 });
 
+const moment = require('moment');
 
+// your first API endpoint...
+app.get('/api/timestamp/:dater', (req, res) => {
+  if (!moment(req.params.dater))
+    return res.json({ unix: null, utc: 'Invalid Date' });
+  const thisDate = new Date(moment().format(req.params.dater));
+  return res.json({ unix: thisDate.getTime(), utc: thisDate.toUTCString() });
+});
 
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
+var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
