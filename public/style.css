@@ -13,10 +13,9 @@ body {
 
 #container {
   background: white;
-  /* border: 1px pink solid; */
   width: 90%;
   max-width: 1200px;
-  margin: 30px auto;
+  margin: 2rem auto;
   padding: 1rem;
   box-shadow: 1px 1px 5px gray;
 }
@@ -26,18 +25,18 @@ h1 {
 }
 
 h2 {
-  margin: 1rem 0;
+  margin: 1.25rem 0 0.35rem 0;
   text-indent: 2rem;
 }
 
-ol {
+ol,
+#desc {
   background: linen;
-  padding: 0.5rem 0;
+  padding: 0.5rem;
 }
 
 li {
-  margin-left: 4rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0 1rem 4rem;
 }
 
 .cont {
@@ -47,6 +46,7 @@ li {
   grid-template-columns: 1fr 1fr;
 }
 
-h3 {
-  /* margin-top: 0.5rem; */
+code {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 0.1rem;
 }

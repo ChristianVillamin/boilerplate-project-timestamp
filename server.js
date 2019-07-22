@@ -28,17 +28,22 @@ const moment = require('moment');
 
 // your first API endpoint...
 app.get('/api/timestamp/:dater', (req, res) => {
-  if (!moment(req.params.dater)) {
-    return res.json({ unix: null, utc: 'Invalid Date' });
+  let date;
+
+  if (!moment(req.params.dater).isValid()) {
+    date = new Date(req.params.dater * 1000);
+    if (date > 0) {
+      return res.json({ unix: date.getTime(), utc: date.toUTCString() });
+    } else {
+      return res.json({ unix: null, utc: 'Invalid Date' });
+    }
   }
 
-  const thisDate = new Date(moment().format(req.params.dater));
-  return res.json({ unix: thisDate.getTime(), utc: thisDate.toUTCString() });
+  date = new Date(moment().format(req.params.dater));
+  return res.json({ unix: date.getTime(), utc: date.toUTCString() });
 });
 
-const PORT = 5000;
-
 // listen for requests :)
-var listener = app.listen(PORT, function() {
+var listener = app.listen(process.env.PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
