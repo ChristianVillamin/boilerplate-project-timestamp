@@ -35,13 +35,15 @@ ol,
   padding: 0.5rem;
 }
 
+#desc {
+  padding-left: 4rem;
+}
+
 li {
   margin: 1rem 0 1rem 4rem;
 }
 
 .cont {
-  /* display: flex;
-  flex: 2 1; */
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
@@ -49,4 +51,22 @@ li {
 code {
   background: rgba(0, 0, 0, 0.1);
   padding: 0.1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  #container {
+    width: 100%;
+  }
+
+  li {
+    margin: 1rem 0 1rem 1rem;
+  }
+
+  .cont {
+    grid-template-columns: 1fr;
+  }
+
+  #desc {
+    padding-left: 1rem;
+  }
 }
