@@ -1,53 +1,52 @@
-/****** Main Styling ******/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
 
 body {
-	font-family: 'Roboto', sans-serif;
-	font-size: 16px;
-	color: #222;
-	background-color: #FaFaFa;
-	text-align: center;
-	line-height: 1.4em;
+  background: lightcyan;
 }
 
-.container {
-	padding: 0;
-	margin-top: 40px;
+#container {
+  background: white;
+  /* border: 1px pink solid; */
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 1rem;
+  box-shadow: 1px 1px 5px gray;
 }
 
-h3 {
-  margin-top: 30px;
+h1 {
+  text-align: center;
 }
 
-.footer {
-	margin-top: 40px;
+h2 {
+  margin: 1rem 0;
+  text-indent: 2rem;
 }
 
-.user-stories {
-  position: relative;
-  text-align: justify;
-  max-width: 700px;
-  margin: 15px auto;
-}
-code {
-  font-family: monospace;
-  padding: 2px;
-  color: black;
-  background-color: #fff;
-}
 ol {
-	list-style-position: outside;
-}
-ul {
-	list-style-type: none;
+  background: linen;
+  padding: 0.5rem 0;
 }
 
 li {
-  margin-bottom: 0.5em;
-}
-.user-stories li {
-  margin-bottom: 1em;
+  margin-left: 4rem;
+  margin-bottom: 1rem;
 }
 
-a {
-	color: #2574A9;
+.cont {
+  /* display: flex;
+  flex: 2 1; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+h3 {
+  /* margin-top: 0.5rem; */
 }

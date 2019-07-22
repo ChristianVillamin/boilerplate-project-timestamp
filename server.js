@@ -19,21 +19,26 @@ app.get('/', function(req, res) {
 });
 
 // your first API endpoint...
-app.get('/api/hello', function(req, res) {
-  res.json({ greeting: 'hello API' });
+app.get('/api/timestamp/', function(req, res) {
+  const theDate = new Date();
+  return res.json({ unix: theDate.getTime(), utc: theDate.toUTCString() });
 });
 
 const moment = require('moment');
 
 // your first API endpoint...
 app.get('/api/timestamp/:dater', (req, res) => {
-  if (!moment(req.params.dater))
+  if (!moment(req.params.dater)) {
     return res.json({ unix: null, utc: 'Invalid Date' });
+  }
+
   const thisDate = new Date(moment().format(req.params.dater));
   return res.json({ unix: thisDate.getTime(), utc: thisDate.toUTCString() });
 });
 
+const PORT = 5000;
+
 // listen for requests :)
-var listener = app.listen(process.env.PORT, function() {
+var listener = app.listen(PORT, function() {
   console.log('Your app is listening on port ' + listener.address().port);
 });
