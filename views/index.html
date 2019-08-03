@@ -14,7 +14,12 @@
         A
         <a href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a>
         API Project by
-        <a href="https://twitter.com/villamin_c" target="_blank">@villamin_c</a>
+        <a href="https://twitter.com/villamin_c" target="_blank">@villamin_c</a
+        >. Link to
+        <a
+          href="https://github.com/ChristianVillamin/boilerplate-project-timestamp"
+          >GitHub</a
+        >.
       </p>
       <h2>Usage</h2>
       <p id="desc">
@@ -148,7 +153,7 @@
     </div>
 
     <script>
-      const now = document.getElementById('now');
+      const now = document.getElementById("now");
       const setTime = () => {
         const dateNow = new Date();
         now.innerHTML = `{"unix":${dateNow.getTime()},"utc":${dateNow.toUTCString()}}`;
